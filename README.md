@@ -6,7 +6,7 @@ A simple Javascript timer
 
 `npm run build`
 
-`Serve up files on localhost`
+Serve up files on localhost
 
 # Usage
 http://localhost/index.html?time=<numInSeconds>
