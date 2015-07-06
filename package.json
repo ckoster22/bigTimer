@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A big, color-coded timer",
   "main": "dist/lib.js",
+  "scripts": {
+    "build": "webpack timer.js dist/lib.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ckoster22/bigTimer.git"
