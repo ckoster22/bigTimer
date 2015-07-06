@@ -1,0 +1,19 @@
+{
+  "name": "bigTimer",
+  "version": "0.0.1",
+  "description": "A big, color-coded timer",
+  "main": "timer.js",
+  "repository": {
+    "type": "git",
+    "url": "git-repo-here"
+  },
+  "author": "Charlie Koster",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "query-params": "0.0.1"
+  },
+  "devDependencies": {
+    "webpack": "^1.10.1"
+  }
+}
