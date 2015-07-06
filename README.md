@@ -9,4 +9,4 @@ A simple Javascript timer
 Serve up files on localhost
 
 # Usage
-http://localhost/index.html?time=<numInSeconds>
+http://localhost/index.html?time=numInSeconds
