@@ -9,7 +9,7 @@ var timeInSeconds;
 var startTime = Date.now();
 var endTime;
 var blinkFlag = false;
-
+var soundPlayCount = 0;
 params = queryParams.decode(location.search.substring(1));
 timeInSeconds = params.time;
 endTime = startTime + parseInt(timeInSeconds * 1000);
@@ -34,6 +34,11 @@ setInterval(function() {
         }
 
         blinkFlag = !blinkFlag;
+
+        if (soundPlayCount++ < 6) {
+            var ding = new Audio('assets/ding.mp3');
+            ding.play();
+        }
     }
     else if (diffInSeconds <= 60) {
         bodyEl.css('background-color', 'red');
