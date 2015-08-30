@@ -24,8 +24,8 @@ setInterval(function() {
     bodyEl = $('body');
 
     if (diffInSeconds <= 0) {
-        minutes = '00';
-        seconds = '00';
+        minutes = minutes + 1; // add one for the switch to negative
+        seconds = seconds + 1; // add one for the switch to negative
 
         if (blinkFlag) {
             timerEl.css('color', 'white');
@@ -46,17 +46,18 @@ setInterval(function() {
         bodyEl.css('background-color', 'yellow');
     }
 
-    timerEl.text(minutes + ':' + seconds);
+    timerEl.text(format(minutes) + ':' + format(seconds));
 }, 250);
 
 function getMinutes(totalSeconds) {
-    return format(Math.floor(totalSeconds / 60));
+    return Math.floor(totalSeconds / 60);
 }
 
 function getSeconds(totalSeconds) {
-    return format(Math.floor(totalSeconds % 60));
+    return Math.floor(totalSeconds % 60);
 }
 
 function format(num) {
+    num = Math.abs(num);
     return num < 10 ? '0' + num : num;
 }
