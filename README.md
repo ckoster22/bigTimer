@@ -1,5 +1,5 @@
 # bigTimer
-A simple Javascript timer
+A simple Javascript timer - run it here: http://ckoster22.github.io/bigTimer/?time=600
 
 # Dev Instructions
 `npm install`
