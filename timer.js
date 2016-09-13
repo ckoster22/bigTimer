@@ -10,6 +10,9 @@ var startTime = Date.now();
 var endTime;
 var blinkFlag = false;
 var soundPlayCount = 0;
+var dingThreshold = 43;
+var secondsSinceLastDing = 0;
+var lastDingTime = Date.now();
 params = queryParams.decode(location.search.substring(1));
 timeInSeconds = params.time;
 endTime = startTime + parseInt(timeInSeconds * 1000);
@@ -19,6 +22,7 @@ setInterval(function() {
     var diffInSeconds = (endTime - currentTime) / 1000;
     var minutes = getMinutes(diffInSeconds);
     var seconds = getSeconds(diffInSeconds);
+    secondsSinceLastDing = (currentTime - lastDingTime) / 1000;
 
     timerEl = $('[timer-text]');
     bodyEl = $('body');
@@ -36,8 +40,13 @@ setInterval(function() {
         blinkFlag = !blinkFlag;
 
         if (soundPlayCount++ < 6) {
+            lastDingTime = currentTime;
             var ding = new Audio('assets/ding.mp3');
             ding.play();
+        }
+
+        if (secondsSinceLastDing > dingThreshold) {
+            soundPlayCount = 0;
         }
     }
     else if (diffInSeconds <= 60) {
